@@ -4,6 +4,10 @@ const {createContainer,asClass,asFunction,asValue} = require('awilix');
 const config = require('../config');
 // MODELOS
 const {UsuarioModel,ConfesionModel,ComentarioModel} = require('../models');
+// REPOSITORIOS
+const {UsuarioRepository,ConfesionRepository,ComentarioRepository} = require('../repositories');
+
+
 const container = createContainer();
 
 container
@@ -14,6 +18,11 @@ container
         UsuarioModel:asValue(UsuarioModel),
         ConfesionModel:asValue(ConfesionModel),
         ComentarioModel:asValue(ComentarioModel)
+    })
+    .register({
+        UsuarioRepository:asClass(UsuarioRepository).singleton(),
+        ConfesionRepository:asClass(ConfesionRepository).singleton(),
+        ComentarioRepository:asClass(ComentarioRepository).singleton(),
     })
 
 module.exports = container;
