@@ -6,7 +6,8 @@ const config = require('../config');
 const {UsuarioModel,ConfesionModel,ComentarioModel} = require('../models');
 // REPOSITORIOS
 const {UsuarioRepository,ConfesionRepository,ComentarioRepository} = require('../repositories');
-
+// SERVICIOS
+const {UsuarioService,ConfesionService,ComentarioService} = require('../services');
 
 const container = createContainer();
 
@@ -22,7 +23,12 @@ container
     .register({
         UsuarioRepository:asClass(UsuarioRepository).singleton(),
         ConfesionRepository:asClass(ConfesionRepository).singleton(),
-        ComentarioRepository:asClass(ComentarioRepository).singleton(),
+        ComentarioRepository:asClass(ComentarioRepository).singleton()
+    })
+    .register({
+        UsuarioService:asClass(UsuarioService).singleton(),
+        ConfesionService:asClass(ConfesionService).singleton(),
+        ComentarioService:asClass(ComentarioService).singleton()
     })
 
 module.exports = container;

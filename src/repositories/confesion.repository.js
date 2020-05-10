@@ -6,7 +6,7 @@ class ConfesionRepository extends BaseRepository{
         super(ConfesionModel);
         _ConfesionModel = ConfesionModel;
     }
-    async getConfesionByAutor(autor){
+    async getConfesionesByAutor(autor){
         return await _ConfesionModel.find({autor});
     }
 }
