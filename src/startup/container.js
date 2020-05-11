@@ -2,6 +2,8 @@ const {createContainer,asClass,asFunction,asValue} = require('awilix');
 
 // CONFIGURACIÓN PRINCIPAL
 const config = require('../config');
+const router = require('../routers');
+const server = require('.');
 // MODELOS
 const {UsuarioModel,ConfesionModel,ComentarioModel} = require('../models');
 // REPOSITORIOS
@@ -17,7 +19,9 @@ const container = createContainer();
 
 container
     .register({
-        config:asValue(config)
+        config:asValue(config),
+        router:asFunction(router).singleton(),
+        server:asClass(server).singleton()
     })
     .register({
         UsuarioModel:asValue(UsuarioModel),
