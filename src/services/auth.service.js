@@ -5,7 +5,7 @@ class AuthService {
     constructor({UsuarioService}){
         _UsuarioService = UsuarioService;
     }
-    async signup(usuario){
+    async signUp(usuario){
         if(!usuario) _err(400,'usuario es requerido');
         const {email} = usuario;
         delete usuario.rol;
@@ -20,7 +20,7 @@ class AuthService {
             };
         }
     }
-    async signin(usuario){
+    async signIn(usuario){
         if(!usuario) _err(400,'usuario es requerido');
         const {email,password} = usuario;
         const usuarioEncontrado = await _UsuarioService.getUsuarioByEmail(email);

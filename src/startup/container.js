@@ -11,7 +11,7 @@ const {UsuarioRepository,ConfesionRepository,ComentarioRepository} = require('..
 // SERVICIOS
 const {UsuarioService,ConfesionService,ComentarioService,AuthService} = require('../services');
 // CONTROLADORES
-const {UsuarioController,ConfesionController,ComentarioController} = require('../controllers');
+const {UsuarioController,ConfesionController,ComentarioController,AuthController} = require('../controllers');
 // RUTAS
 const {UsuarioRouter,ConfesionRouter,ComentarioRouter} = require('../routers/index.route');
 
@@ -42,7 +42,8 @@ container
     .register({
         UsuarioController:asClass(UsuarioController.bind(UsuarioController)).singleton(),
         ConfesionController:asClass(ConfesionController.bind(ConfesionController)).singleton(),
-        ComentarioController:asClass(ComentarioController.bind(ComentarioController)).singleton()
+        ComentarioController:asClass(ComentarioController.bind(ComentarioController)).singleton(),
+        AuthController:asClass(AuthController.bind(AuthController)).singleton()
     })
     .register({
         UsuarioRouter:asFunction(UsuarioRouter).singleton(),
