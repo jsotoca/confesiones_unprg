@@ -1,5 +1,6 @@
 const express = require('express');
-const _config,_server = null;
+let _config = null;
+let _server = null;
 
 class Server{
     constructor({config,router}){
