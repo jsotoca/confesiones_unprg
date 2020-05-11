@@ -10,7 +10,8 @@ const {UsuarioRepository,ConfesionRepository,ComentarioRepository} = require('..
 const {UsuarioService,ConfesionService,ComentarioService} = require('../services');
 // CONTROLADORES
 const {UsuarioController,ConfesionController,ComentarioController} = require('../controllers');
-
+// RUTAS
+const {UsuarioRouter,ConfesionRouter,ComentarioRouter} = require('../routers/index.route');
 
 const container = createContainer();
 
@@ -37,6 +38,11 @@ container
         UsuarioController:asClass(UsuarioController.bind(UsuarioController)).singleton(),
         ConfesionController:asClass(ConfesionController.bind(ConfesionController)).singleton(),
         ComentarioController:asClass(ComentarioController.bind(ComentarioController)).singleton()
+    })
+    .register({
+        UsuarioRouter:asFunction(UsuarioRouter).singleton(),
+        ComentarioRouter:asFunction(ComentarioRouter).singleton(),
+        ConfesionRouter:asFunction(ConfesionRouter).singleton()
     })
 
 module.exports = container;
